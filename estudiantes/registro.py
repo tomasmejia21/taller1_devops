@@ -14,4 +14,21 @@ def importarCsv():
     print(datos)
     return datos
 
-importarCsv()
+def mostrarEstudiantesOrdenados(datos):
+    # Ordenar estudiantes por orden alfabético
+    datos.sort(key=lambda x: x[1], reverse=True)
+    print("Estudiantes ordenados por nota:")
+    for estudiante in datos:
+        estudiantes_ordenados = sorted(datos, key=lambda e: e[0].lower())
+    
+    # Encabezado
+    print(f"{'Nombre':<20} {'Nota':>5}")
+    print("-" * 26)
+
+    # Mostrar estudiantes
+    for estudiante in estudiantes_ordenados:
+        nombre = estudiante[0]
+        nota = estudiante[1]
+        print(f"{nombre:<20} {nota:>5.1f}")
+
+mostrarEstudiantesOrdenados(importarCsv())

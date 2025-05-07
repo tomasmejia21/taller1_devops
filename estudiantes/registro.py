@@ -10,8 +10,6 @@ def importarCsv():
                 print("Las notas deben estar entre 0 y 5")
             else:
                 datos.append(row)
-    
-    print(datos)
     return datos
 
 def mostrarEstudiantesOrdenados(datos):
@@ -31,4 +29,9 @@ def mostrarEstudiantesOrdenados(datos):
         nota = estudiante[1]
         print(f"{nombre:<20} {nota:>5.1f}")
 
-mostrarEstudiantesOrdenados(importarCsv())
+def CalcularPromedio(datos):
+    suma = 0
+    for estudiante in datos:
+        suma += estudiante[1]
+    promedio = suma / len(datos)
+    print(f"El promedio de notas es: {promedio:.2f}")
